@@ -15,6 +15,14 @@ env:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
+      local-registry:
+        # Docker Hub image
+        image: registry
+
     steps:
       - uses: actions/checkout@v2
 
@@ -28,8 +36,8 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           context: src/
           platforms: linux/amd64
-          tags: ${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
-          load: true
+          tags: local-registry:5000/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+          push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -44,7 +52,6 @@ jobs:
           context: test/
           platforms: linux/amd64
           tags: ${{ env.TEST_IMAGE_NAME }}
-          load: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
