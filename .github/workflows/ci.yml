@@ -9,7 +9,7 @@ on:
       - rb/*
 
 env:
-  IMAGE_NAME: nginx-brotli
+  IMAGE_NAME: fholzer/nginx-brotli
   TEST_IMAGE_NAME: nginx-brotli-test
 
 jobs:
