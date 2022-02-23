@@ -28,7 +28,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           context: src/
           platforms: linux/amd64
-          tags: ${{ env.IMAGE_NAME }}
+          tags: ${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
           load: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
