@@ -9,7 +9,7 @@ on:
       - rb/*
 
 env:
-  IMAGE_NAME: local-registry:5000/fholzer/nginx-brotli
+  IMAGE_NAME: registry:5000/fholzer/nginx-brotli
   TEST_IMAGE_NAME: nginx-brotli-test
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
     # Service containers to run with `container-job`
     services:
       # Label used to access the service container
-      local-registry:
+      registry:
         # Docker Hub image
         image: registry:2
         ports:
