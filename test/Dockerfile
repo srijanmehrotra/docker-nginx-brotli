@@ -14,7 +14,9 @@ RUN apk --update add \
 		perl-test-harness-utils \
 	&& rm -rf /var/cache/apk/*
 
+ADD tests.sh /usr/bin/tests.sh
+RUN rm /var/log/nginx/*.log
+USER nginx
 RUN	hg clone http://hg.nginx.org/nginx-tests /nginx-tests
 
-ADD tests.sh /usr/bin/tests.sh
 ENTRYPOINT ["sh"]
