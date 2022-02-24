@@ -1,5 +1,4 @@
-ARG TEST_TAG
-FROM localhost:5000/fholzer/nginx-brotli:${TEST_TAG}
+FROM localhost:5000/fholzer/nginx-brotli
 
 RUN apk --update add \
 		mercurial \
