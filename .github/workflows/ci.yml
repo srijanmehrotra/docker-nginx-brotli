@@ -66,4 +66,4 @@ jobs:
 
       - name: Run tests
         run: |
-          docker run --rm ${{ env.TEST_IMAGE_NAME }} /tests.sh
+          docker run --rm ${{ env.TEST_IMAGE_NAME }} /usr/bin/tests.sh
