@@ -60,6 +60,7 @@ jobs:
           context: test/
           platforms: linux/amd64
           tags: ${{ env.TEST_IMAGE_NAME }}
+          load: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
