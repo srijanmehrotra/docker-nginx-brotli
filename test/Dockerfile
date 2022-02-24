@@ -18,3 +18,4 @@ RUN apk --update add \
 RUN	hg clone http://hg.nginx.org/nginx-tests /nginx-tests
 
 ADD tests.sh /usr/bin/tests.sh
+ENTRYPOINT ["sh"]
